@@ -6,4 +6,13 @@
  */
 
 // spawn arsenal at respawn marker logic
-// [getPosASL respawn_logic] spawn uag_fnc_createArsenal;
+_arsenal "C_IDAP_supplyCrate_F" createVehicle getPosASL respawn_logic;
+
+// does ACE exist?
+if (isClass (configFile >> "CfgPatches" >> "ace_main")) then {
+	// init ACE arsenal
+	[_arsenal, true] call ace_arsenal_fnc_initBox;
+} else {
+	// init vanilla arsenal
+	["AmmoboxInit", [_arsenal, true]] call BIS_fnc_arsenal;
+};
