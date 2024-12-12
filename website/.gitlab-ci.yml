@@ -1,0 +1,10 @@
+deploy_to_cloudflare_pages:
+  stage: deploy
+  image: node:22
+  variables:
+    CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
+    CLOUDFLARE_ACCOUNT_ID: "424d9dabd39849818d9e22366a20e4d6"
+    CLOUDFLARE_PROJECT_NAME: "phoenix-legion-website"
+  script:
+    - cd source && npm install && npm run build
+    - npx wrangler pages deploy out/ --project-name $CLOUDFLARE_PROJECT_NAME --branch $CI_COMMIT_REF_NAME

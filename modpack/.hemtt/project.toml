@@ -1,0 +1,31 @@
+name = "Phoenix Legion Modpack"
+prefix = "phoenix_legion_modpack"
+mainprefix = "z"
+
+[version]
+major = 0
+minor = 0
+patch = 0
+git_hash = 8
+
+[files]
+include = [
+    "icon.paa"
+]
+
+[hemtt.launch.dev]
+workshop = [
+    "2369477168", # Advanced Developer Tools
+    "450814997", # CBA_A3
+]
+
+[hemtt.launch.all]
+extends = "dev"
+workshop = [
+    "463939057", # ACE3
+    "751965892", # ACRE
+    "2262006564", # cTab
+]
+parameters = [
+    "-mod=ws;rf;",
+]
